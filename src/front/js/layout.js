@@ -5,6 +5,7 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/Home.jsx";
 import { Login } from "./pages/Login.jsx";
+import { Register } from "./pages/Register.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -27,6 +28,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/login" />
+                        <Route element={<Register />} path="/register" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
