@@ -14,13 +14,7 @@ export const Navbar = () => {
 							<div className="nav-link" href="#">HISTORIA</div>
 						</li>
 						<li className="nav-item">
-							<div className="nav-link" href="#">REGISTRY</div>
-						</li>
-						<li className="nav-item">
 							<div className="nav-link" href="#">TIENDA</div>
-						</li>
-						<li className="nav-item">
-							<div className="nav-link" href="#"></div>
 						</li>
 					</ul>
 				</div>
