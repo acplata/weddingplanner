@@ -1,11 +1,29 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import { useNavigate } from "react-router-dom";
+
+const initialValue = {
+    email: "",
+    password: "",
+};
 
 export const Register = () => {
     const { store, actions } = useContext(Context);
+    const [registerClient, setRegisterClient] = useState(initialValue);
+    const navigate = useNavigate()
+
+    const handleChange = (e) => {
+        setRegisterClient({ ...registerClient, [e.target.name]: e.target.value })
+    };
+
+    const handleSubmit = () => {
+        actions.registerUser(registerClient)
+        navigate('/login');
+    };
 
     return (
+
         <div className="container mt-4">
             <div className="row">
                 <div className="col-12 col-md-6">
@@ -39,6 +57,7 @@ export const Register = () => {
                     </form>
                 </div>
             </div>
+
         </div>
 
     );
