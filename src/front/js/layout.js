@@ -5,7 +5,7 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/Home.jsx";
 import { Login } from "./pages/Login.jsx";
-import { Register } from "./pages/Register.jsx";
+import { RegisterCliente } from "./pages/RegisterClient.jsx";
 import { Planilla } from "./pages/Planilla.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
 
@@ -30,7 +30,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/login" />
-                        <Route element={<Register />} path="/register" />
+                        <Route element={<RegisterCliente />} path="/registercliente" />
                         <Route element={<RegisterProveedor />} path="/registerproveedor" />
                         <Route element={<Planilla />} path="/planilla" />
                         <Route element={<h1>Not found!</h1>} />

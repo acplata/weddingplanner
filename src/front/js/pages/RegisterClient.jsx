@@ -8,7 +8,7 @@ const initialValue = {
     password: "",
 };
 
-export const Register = () => {
+export const RegisterCliente = () => {
     const { store, actions } = useContext(Context);
     const [registerClient, setRegisterClient] = useState(initialValue);
     const navigate = useNavigate()
