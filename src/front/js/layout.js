@@ -5,8 +5,8 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/Home.jsx";
 import { Login } from "./pages/Login.jsx";
-import { RegisterCliente } from "./pages/RegisterClient.jsx";
-import { Planilla } from "./pages/Planilla.jsx";
+import { RegisterCliente } from "./pages/RegisterCliente.jsx";
+import { PlanillaCliente } from "./pages/PlanillaCliente.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
 
 import injectContext from "./store/appContext";
@@ -32,7 +32,7 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<RegisterCliente />} path="/registercliente" />
                         <Route element={<RegisterProveedor />} path="/registerproveedor" />
-                        <Route element={<Planilla />} path="/planilla" />
+                        <Route element={<PlanillaCliente />} path="/planillacliente" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
