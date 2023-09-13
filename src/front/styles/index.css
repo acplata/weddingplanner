@@ -7,10 +7,15 @@
     box-shadow: 1px 1px 1px rgb(78, 78, 78);
 }
 
+.logintemplate {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .login {
     border: 5px double rgb(136, 186, 136);
-    margin-left: 50px;
-    text-align: center;
+     text-align: center;
 }
 
 .login-title {
@@ -22,7 +27,43 @@
 }
 
 .register {
-    border: 5px double rgb(136, 186, 136);
-    margin-left: 50px;
+    border: 5px double rgb(236, 140, 155);
     text-align: center;
+    color: rgb(100, 43, 52);
+}
+
+.registertitle {
+    font-size: 40px;
+    color: rgb(236, 140, 155);
+
+}
+
+.registerproveedor {
+    border: 5px double;
+    text-align: center;
+    color:  rgb(62, 17, 62);
+}
+
+.registerprovtitle {
+    font-size: 40px;
+    color: rgb(62, 17, 62);
+}
+
+.planilla {
+    background: url('https://cdn.caratsandcake.com/_images/cache/indian-fusion-wedding-meredith-eshaan-17-232519-1671741093.jpg');
+    padding: 120px;
+}
+
+.planilla2 {
+    background: white;
+    color: black;
+    opacity: 0.8;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.planillatitle {
+    color: rgb(241, 171, 42);
 }
