@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const Planilla = () => {
+export const PlanillaCliente = () => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -22,6 +22,10 @@ export const Planilla = () => {
                 <div className="mb-3">
                     <label for="formGroupExampleInput2" className="form-label">Fecha del Matrimonio</label>
                     <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" />
+                </div>
+                <div className="mb-3">
+                    <label for="formGroupExampleInput2" className="form-label">Cantidad de Invitados Estimado</label>
+                    <input type="text" className="form-control" id="formGroupExampleInput2" />
                 </div>
                 <div className="mb-3">
                     <label for="formGroupExampleInput2" className="form-label">¿Boda Diurna o Nocturna?</label>
