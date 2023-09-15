@@ -25,7 +25,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			} catch (error) {
 				console.log(error)
 			}
-		}
+		},
+
+			addWedding: (wedding) => {
+				const store = getStore();
+				setStore({ weddingForm: [...store.weddingForm, wedding] });
+		},
+
 		}
 	};
 };
