@@ -7,49 +7,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			registerUser: async (userData) => {
-			try {
-				const store = getStore(userData);
-				const response = await fetch(`${store.backendUrl}/api/register/user`, {
-					body: JSON.stringify(userData),
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
+				try {
+					const store = getStore(userData);
+					const response = await fetch(`${store.backendUrl}/api/register/user`, {
+						body: JSON.stringify(userData),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					});
 
-				const data = await response.json();
-				alert(data);
-				if (response.status !== 201) {
-					return false;
-				} else {
-					return true;
+					const data = await response.json();
+					alert(data);
+					if (response.status !== 201) {
+						return false;
+					} else {
+						return true;
+					}
+				} catch (error) {
+					console.log(error)
 				}
-			} catch (error) {
-				console.log(error)
-			}
-		},
+			},
 
-		loginUser: async (userData) => {
-			try {
+			loginUser: async (userData) => {
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/login/user`, {
+						body: JSON.stringify(userData),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					});
+
+					const data = await response.json();
+					if (!data.token) return false;
+					setStore({ token: data.token })
+					return true
+
+				} catch (error) {
+					console.log(error)
+				}
+
+			},
+
+			addWedding: (wedding) => {
 				const store = getStore();
-				const response = await fetch(`${store.backendUrl}/api/login/user`, {
-					body: JSON.stringify(userData),
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
-
-				const data = await response.json();
-				if (!data.token) return false;
-				setStore({ token: data.token })
-				return true
-
-			} catch (error) {
-				console.log(error)
-			}
-
-		}
+				setStore({ weddingForm: [...store.weddingForm, wedding] });
+			},
 
 		}
 	};

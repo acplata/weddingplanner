@@ -33,8 +33,8 @@ export const PlanillaCliente = () => {
     };
 
     const addNewWedding = () => {
-        // actions.addWedding(newWedding);
-        console.log(newWedding)
+        actions.addWedding(newWedding);
+
     };
 
     const handleChangeRadio = (event, value) => {
