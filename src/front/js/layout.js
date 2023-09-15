@@ -8,11 +8,13 @@ import { Login } from "./pages/Login.jsx";
 import { RegisterCliente } from "./pages/RegisterCliente.jsx";
 import { PlanillaCliente } from "./pages/PlanillaCliente.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
+import { ProfileCliente } from "./pages/ProfileCliente.jsx";
 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/Footer.jsx";
+
 
 //create your first component
 const Layout = () => {
@@ -33,6 +35,7 @@ const Layout = () => {
                         <Route element={<RegisterCliente />} path="/registercliente" />
                         <Route element={<RegisterProveedor />} path="/registerproveedor" />
                         <Route element={<PlanillaCliente />} path="/planillacliente" />
+                        <Route element={<ProfileCliente />} path="/profile/user" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
