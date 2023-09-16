@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Provider
+from api.models import db, User, Provider, Wedding
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
@@ -129,11 +129,43 @@ def get_private_info_from_provider():
     provider = get_jwt_identity()
     return jsonify({"data": provider}), 200
 
+#Endpoint de la planilla del cliente
 
-# Get users como herramienta
+@api.route('/planillacliente', methods=['POST'])
+def add_planillacliente():
+    data = request.get_json()  
+    data_name_novia = data.get("name_novia", None)
+    data_name_novio = data.get("name_novio", None)
+    data_wedding_date = data.get("wedding_date", None)
+    data_wedding_time = data.get("wedding_time", None)
+    data_place = data.get("place", None)
+    data_presupuesto_estimado = data.get("presupuesto_estimado", None)
+    data_guests_average = data.get("guests_average", None)
+    data_food_question = data.get("food_question", None)
+    data_music_question = data.get("music_question", None)
+    data_visual_media_question = data.get("visual_media_question", None)
+    data_legal_documentation_question = data.get("legal_documentation_question", None)
+    data_cloth_question = data.get("cloth_question", None)
 
-@api.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    serialized_users = [user.serialize() for user in users]
-    return jsonify(serialized_users), 200
+    new_planillacliente = Wedding(name_novio=data_name_novio, 
+                                  name_novia=data_name_novia, 
+                                  wedding_date=data_wedding_date,
+                                  place=data_place, 
+                                  presupuesto_estimado=data_presupuesto_estimado, 
+                                  guests_average=data_guests_average,
+                                  food_question=data_food_question, 
+                                  music_question=data_music_question, 
+                                  visual_media_question=data_visual_media_question,
+                                  legal_documentation_question=data_legal_documentation_question,
+                                  cloth_question=data_cloth_question, 
+                                  wedding_time=data_wedding_time)
+
+    try:
+        db.session.add(new_planillacliente)  
+       
+        db.session.commit() 
+        return jsonify(new_planillacliente.serialize()), 201
+
+    except Exception as error:
+        db.session.rollback()
+        return jsonify(error), 500 
