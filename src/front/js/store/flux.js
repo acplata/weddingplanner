@@ -29,6 +29,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			registerProvider: async (userData) => {
+				try {
+					const store = getStore();
+					console.log(userData)
+					const response = await fetch(`${store.backendUrl}/api/register/provider`, {
+						body: JSON.stringify(userData),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					});
+
+					const data = await response.json();
+					alert(data);
+					if (response.status !== 201) {
+						return false;
+					} else {
+						return true;
+					}
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
 			loginUser: async (userData) => {
 				try {
 					const store = getStore();
@@ -50,6 +74,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
+
+			loginProvider: async (userData) => {
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/login/provider`, {
+						body: JSON.stringify(userData),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					});
+
+					const data = await response.json();
+					if (!data.token) return false;
+					setStore({ token: data.token })
+					return true
+
+				} catch (error) {
+					console.log(error)
+				}
+
+			},
+
+
 
 			addWedding: (wedding) => {
 				const store = getStore();

@@ -130,10 +130,3 @@ def get_private_info_from_provider():
     return jsonify({"data": provider}), 200
 
 
-# Get users como herramienta
-
-@api.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    serialized_users = [user.serialize() for user in users]
-    return jsonify(serialized_users), 200
