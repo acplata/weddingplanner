@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			backendUrl: process.env.BACKEND_URL,
-			token: "",
+			token: JSON.parse(localStorage.getItem("token")) || "",
 			userData: {},
 		},
 
@@ -44,6 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					if (!data.token) return false;
 					setStore({ token: data.token })
+					localStorage.setItem("token", JSON.stringify(data.token))
 					return true
 
 				} catch (error) {
@@ -56,18 +57,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				try {
 					const store = getStore();
-					setStore({ weddingForm: wedding });
-					const response = await fetch(`${store.backendUrl}/api/planillacliente`, {
+					const response = await fetch(`${store.backendUrl}/api/planilla/cliente`, {
 						body: JSON.stringify(wedding),
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
-							Authorization: `Bearer ${store.token}`,
+							"Authorization": `Bearer ${store.token}`,
 						},
 					});
 
 					const data = await response.json();
-					alert(data);
 					if (response.status !== 201) {
 						return false;
 					} else {

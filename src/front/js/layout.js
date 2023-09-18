@@ -9,6 +9,7 @@ import { RegisterCliente } from "./pages/RegisterCliente.jsx";
 import { PlanillaCliente } from "./pages/PlanillaCliente.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
 import { ProfileCliente } from "./pages/ProfileCliente.jsx";
+import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -22,7 +23,7 @@ const Layout = () => {
     // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
 
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL />;
 
     return (
         <div>
@@ -32,10 +33,11 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/login" />
-                        <Route element={<RegisterCliente />} path="/registercliente" />
-                        <Route element={<RegisterProveedor />} path="/registerproveedor" />
-                        <Route element={<PlanillaCliente />} path="/planillacliente" />
+                        <Route element={<RegisterCliente />} path="/register/cliente" />
+                        <Route element={<RegisterProveedor />} path="/register/proveedor" />
+                        <Route element={<PlanillaCliente />} path="/planilla/cliente" />
                         <Route element={<ProfileCliente />} path="/profile/user" />
+                        <Route element={<MembresiaCliente />} path="/membresia/cliente" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

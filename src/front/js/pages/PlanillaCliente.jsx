@@ -59,7 +59,7 @@ export const PlanillaCliente = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="formGroupExampleInput2" className="form-label">Fecha del Matrimonio</label>
-                        <input type="text" className="form-control" name="wedding_date" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" onChange={handleChange} />
+                        <input type="text" className="form-control" name="wedding_date" id="formGroupExampleInput2" placeholder="YYYY-MM-DD" onChange={handleChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="formGroupExampleInput2" className="form-label">Cantidad de Invitados Estimado</label>
@@ -75,7 +75,7 @@ export const PlanillaCliente = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="formGroupExampleInput2" className="form-label">Presupuesto Total</label>
-                        <input type="text" className="form-control" name="presupuesto_estimado" id="formGroupExampleInput2" placeholder="$0 - $5,000" onChange={handleChange} />
+                        <input type="text" className="form-control" name="presupuesto_estimado" id="formGroupExampleInput2" placeholder="$0 - $100,000" onChange={handleChange} />
                     </div>
                     <p className="mb-4 mt-4">Marque los siguientes campos en los que esté interesado en obtener proveedores:</p>
                     <fieldset className="row mb-3">
@@ -95,7 +95,7 @@ export const PlanillaCliente = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formGroupExampleInput2" className="form-label">Descripcion / Keywords:</label>
-                                <input type="text" className="form-control" id="formGroupExampleInput2" onChange={handleChange} />
+                                <input type="text" className="form-control" name="food_description" id="formGroupExampleInput2" onChange={handleChange} />
                             </div>
                         </div>
                     </fieldset>
@@ -116,7 +116,7 @@ export const PlanillaCliente = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formGroupExampleInput2" className="form-label">Descripcion / Keywords:</label>
-                                <input type="text" className="form-control" id="formGroupExampleInput2" onChange={handleChange} />
+                                <input type="text" className="form-control" name="music_description" id="formGroupExampleInput2" onChange={handleChange} />
                             </div>
                         </div>
                     </fieldset>
@@ -137,7 +137,7 @@ export const PlanillaCliente = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formGroupExampleInput2" className="form-label">Descripcion / Keywords:</label>
-                                <input type="text" className="form-control" id="formGroupExampleInput2" onChange={handleChange} />
+                                <input type="text" className="form-control" name="visual_media_description" id="formGroupExampleInput2" onChange={handleChange} />
                             </div>
                         </div>
                     </fieldset>
@@ -158,7 +158,7 @@ export const PlanillaCliente = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formGroupExampleInput2" className="form-label">Descripcion / Keywords:</label>
-                                <input type="text" className="form-control" id="formGroupExampleInput2" onChange={handleChange} />
+                                <input type="text" className="form-control" name="legal_documentation_description" id="formGroupExampleInput2" onChange={handleChange} />
                             </div>
                         </div>
                     </fieldset>
@@ -179,7 +179,7 @@ export const PlanillaCliente = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formGroupExampleInput2" className="form-label">Descripcion / Keywords:</label>
-                                <input type="text" className="form-control" id="formGroupExampleInput2" onChange={handleChange} />
+                                <input type="text" className="form-control" name="cloth_description" id="formGroupExampleInput2" onChange={handleChange} />
                             </div>
                         </div>
                     </fieldset>

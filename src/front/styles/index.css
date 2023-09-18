@@ -68,3 +68,9 @@
 .planillatitle {
     color: rgb(241, 171, 42);
 }
+
+.membresiacliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

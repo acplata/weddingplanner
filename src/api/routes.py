@@ -131,7 +131,8 @@ def get_private_info_from_provider():
 
 #Endpoint de la planilla del cliente
 
-@api.route('/planillacliente', methods=['POST'])
+@api.route('/planilla/cliente', methods=['POST'])
+@jwt_required()
 def add_planillacliente():
     data = request.get_json()  
     data_name_novia = data.get("name_novia", None)
@@ -147,6 +148,7 @@ def add_planillacliente():
     data_legal_documentation_question = data.get("legal_documentation_question", None)
     data_cloth_question = data.get("cloth_question", None)
 
+    user_data=get_jwt_identity()
     new_planillacliente = Wedding(name_novio=data_name_novio, 
                                   name_novia=data_name_novia, 
                                   wedding_date=data_wedding_date,
@@ -158,7 +160,8 @@ def add_planillacliente():
                                   visual_media_question=data_visual_media_question,
                                   legal_documentation_question=data_legal_documentation_question,
                                   cloth_question=data_cloth_question, 
-                                  wedding_time=data_wedding_time)
+                                  wedding_time=data_wedding_time,
+                                  user_id=user_data["id"])
 
     try:
         db.session.add(new_planillacliente)  
@@ -168,4 +171,4 @@ def add_planillacliente():
 
     except Exception as error:
         db.session.rollback()
-        return jsonify(error), 500 
+        return jsonify(error.args), 500 
