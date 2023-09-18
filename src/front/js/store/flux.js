@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: "",
 			userData: {},
 		},
+
 		actions: {
 			registerUser: async (userData) => {
 				try {
@@ -96,18 +97,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
+	
+			addWedding: async (wedding) => {
 
+				try {
+					const store = getStore();
+					setStore({ weddingForm: wedding });
+					const response = await fetch(`${store.backendUrl}/api/planillacliente`, {
+						body: JSON.stringify(wedding),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`,
+						},
+					});
 
+					const data = await response.json();
+					alert(data);
+					if (response.status !== 201) {
+						return false;
+					} else {
+						return true;
+					}
 
-			addWedding: (wedding) => {
-				const store = getStore();
-				setStore({ weddingForm: [...store.weddingForm, wedding] });
+				} catch (error) {
+					console.log("Hay un error")
+				}
 			},
-
-		}
+		},
 	};
 };
-
-
 
 export default getState;
