@@ -5,16 +5,20 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/Home.jsx";
 import { Login } from "./pages/Login.jsx";
+import { LoginProveedor } from "./pages/LoginProveedor.jsx";
 import { RegisterCliente } from "./pages/RegisterCliente.jsx";
 import { PlanillaCliente } from "./pages/PlanillaCliente.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
 import { ProfileCliente } from "./pages/ProfileCliente.jsx";
 import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
+import { ProfileProveedor } from "./pages/ProfileProveedor.jsx";
+
 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/Footer.jsx";
+
 
 
 //create your first component
@@ -33,11 +37,13 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/login" />
-                        <Route element={<RegisterCliente />} path="/register/cliente" />
-                        <Route element={<RegisterProveedor />} path="/register/proveedor" />
-                        <Route element={<PlanillaCliente />} path="/planilla/cliente" />
-                        <Route element={<ProfileCliente />} path="/profile/user" />
                         <Route element={<MembresiaCliente />} path="/membresia/cliente" />
+                        <Route element={<LoginProveedor />} path="/login/provider" />
+                        <Route element={<RegisterCliente />} path="/registercliente" />
+                        <Route element={<RegisterProveedor />} path="/registerproveedor" />
+                        <Route element={<PlanillaCliente />} path="/planillacliente" />
+                        <Route element={<ProfileCliente />} path="/profile/user" />
+                        <Route element={<ProfileProveedor />} path="/profile/provider" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
