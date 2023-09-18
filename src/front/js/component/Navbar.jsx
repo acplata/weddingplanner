@@ -14,7 +14,7 @@ export const Navbar = () => {
 							<div className="nav-link" href="#">HISTORIA</div>
 						</li>
 						<li className="nav-item">
-							<div className="nav-link" href="#">REGISTRY</div>
+							<div className="nav-link" href="#">REGISTRO</div>
 						</li>
 						<li className="nav-item">
 							<div className="nav-link" href="#">TIENDA</div>
