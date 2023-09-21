@@ -55,7 +55,7 @@ export const Home = () => {
 					</div>
 					<div className="col-12 col-lg-6 gap-1">
 						<div>
-							<h3 className="titulo mb-5"><strong>Sobre Nosotros</strong></h3>
+							<h3 className="titulo mb-5"><strong>Sobre la Compañía</strong></h3>
 						</div>
 						<div className="m-3">
 							<p className="mb-4"><strong>A+M Wedding Planners</strong> fue creada por una Bride To Be frustrada por no tener el presupuesto para contractar una wedding planner en Venezuela, hasta llegar al punto de organizar el matrimonio ella sola. El deseo de que no pasaran por esta misma situacion fue el resultado de la creación de esta idea. Así que por experiencia, sabemos con claridad que necesitas y como deseas vivir el proceso. De principio a fin.</p>
@@ -63,7 +63,7 @@ export const Home = () => {
 							<p>Grandes cosas están por venir ¡Realmente somos una pequeña familia y estamos ansiosos por darte la bienvenida como parte de ella! </p>
 						</div>
 						<div className="mt-5">
-							<button type="button" className="btn">¡Aprende mas sobre nosotros!</button>
+							<button type="button" className="btn">¡Aprende mas sobre la compañía!</button>
 						</div>
 					</div>
 				</div>
