@@ -123,12 +123,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+
+			addProvider: async (provider) => {
+
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/planilla/provider`, {
+						body: JSON.stringify(provider),
+            method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`,
+						},
+					});
+
+					const data = await response.json();
+					if (response.status !== 201) {
+						return false;
+					} else {
+						return true;
+					}
+
+				} catch (error) {
+					console.log("Hay un error")
+				}
+},
+
 			addMembership: async (User_membership) => {
 
 				try {
 					const store = getStore();
 					const response = await fetch(`${store.backendUrl}/api/membresia/cliente`, {
 						body: JSON.stringify(User_membership),
+
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
@@ -146,7 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("Hay un error")
 				}
-			},
+			}
 		},
 	};
 };

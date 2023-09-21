@@ -54,7 +54,6 @@ class Wedding(db.Model):
     name_novia = db.Column(db.String(200), nullable=False)
     wedding_date = db.Column(db.Date, nullable=False)
     wedding_time = db.Column(db.String(10),nullable=False)
-    # presupuesto_pregunta = db.Column(db.Boolean(),nullable=False)
     presupuesto_estimado = db.Column(db.Integer, nullable=False)
     place = db.Column(db.String(500), nullable=False)
     guests_average = db.Column(db.Integer, nullable=False)
@@ -67,7 +66,6 @@ class Wedding(db.Model):
 
     #relations
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    # user_membership = db.relationship("User_membership", backref= "Wedding")
 
     def __repr__(self):
         return f'<Wedding {self.name_novia}>'
@@ -96,16 +94,12 @@ class Provider_sheet(db.Model):
     RIF = db.Column(db.Integer, nullable=False)
     company_industry = db.Column(db.String(200), nullable=False)
     company_description = db.Column(db.String(200), nullable=False)
-    # presupuesto_question = db.Column(db.Boolean(), nullable=False)
     presupuesto_minimo_de_usuario = db.Column(db.Integer, nullable=False)
     clients_amount_per_month_question = db.Column(db.Boolean(), nullable=False)
-    clients_amount_per_month_description = db.Column(db.Integer, nullable=True)
     clients_amount_per_wedding_question = db.Column(db.Boolean(), nullable=False)
-    clients_amount_per_wedding_description = db.Column(db.Integer, nullable=True)
 
     #relations
     provider_id = db.Column(db.Integer, db.ForeignKey("provider.id"), nullable=False)
-    # provider_membership = db.relationship("Provider_membership", backref= "Provider_sheet")
 
     def __repr__(self):
      return f'<Provider_sheet {self.company_name}>'
@@ -118,10 +112,8 @@ class Provider_sheet(db.Model):
             "company_industry": self.company_industry,
             "company_description": self.company_description,
             "presupuesto_minimo_de_usuario": self.presupuesto_minimo_de_usuario,
-            "clients_amount_per_month_question": self.clients_amount_per_month_question,
-            "clients_amount_per_month_description": self.clients_amount_per_month_description, 
+            "clients_amount_per_month_question": self.clients_amount_per_month_question, 
             "clients_amount_per_wedding_question": self.clients_amount_per_wedding_question,
-            "clients_amount_per_wedding_description": self.clients_amount_per_wedding_description,
         }
     
 

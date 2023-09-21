@@ -56,6 +56,13 @@
 
 }
 
+.planilla-provider {
+    background: url('https://cdn.caratsandcake.com/_images/cache/loews-vanderbilt-hotel-thumb-258077-1687793414.jpg');
+    padding: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .planilla2 {
     background: white;
     color: black;

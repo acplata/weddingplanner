@@ -36,7 +36,7 @@ export const LoginProveedor = () => {
                             <div className="login-title mb-4"><strong>Inicia Sesión</strong></div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label"><strong>Email</strong></label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" onChange={handleChange} />
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="company_email" onChange={handleChange} />
                                 <div id="emailHelp" className="form-text">No compartiremos tu correo con nadie</div>
                             </div>
                             <div className="mb-3">
