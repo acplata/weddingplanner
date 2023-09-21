@@ -24,7 +24,7 @@ export const Navbar = () => {
 					</div>
 				</div>
 				<div>
-					<div>
+					<div className="d-flex gap-1">
 						<div className="dropdown">
 							<button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 								CLIENTES
