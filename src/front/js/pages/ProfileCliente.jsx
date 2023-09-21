@@ -7,7 +7,8 @@ export const ProfileCliente = () => {
 
 
     return (
-        <h1>Ruta privada</h1>
-
+        <>
+            <h1>Ruta privada</h1>
+        </>
     );
 };

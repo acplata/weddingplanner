@@ -9,6 +9,7 @@ import { LoginProveedor } from "./pages/LoginProveedor.jsx";
 import { RegisterCliente } from "./pages/RegisterCliente.jsx";
 import { PlanillaCliente } from "./pages/PlanillaCliente.jsx";
 import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
+import { PlanillaProveedor } from "./pages/PlanillaProveedor.jsx";
 import { ProfileCliente } from "./pages/ProfileCliente.jsx";
 import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
 import { ProfileProveedor } from "./pages/ProfileProveedor.jsx";
@@ -39,9 +40,10 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<MembresiaCliente />} path="/membresia/cliente" />
                         <Route element={<LoginProveedor />} path="/login/provider" />
-                        <Route element={<RegisterCliente />} path="/registercliente" />
-                        <Route element={<RegisterProveedor />} path="/registerproveedor" />
-                        <Route element={<PlanillaCliente />} path="/planillacliente" />
+                        <Route element={<RegisterCliente />} path="/register/cliente" />
+                        <Route element={<RegisterProveedor />} path="/register/proveedor" />
+                        <Route element={<PlanillaCliente />} path="/planilla/cliente" />
+                        <Route element={<PlanillaProveedor />} path="/planilla/proveedor" />
                         <Route element={<ProfileCliente />} path="/profile/user" />
                         <Route element={<ProfileProveedor />} path="/profile/provider" />
                         <Route element={<h1>Not found!</h1>} />
