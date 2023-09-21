@@ -4,44 +4,45 @@ import "../../styles/index.css";
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-white">
-			<div className="container-fluid m-3">
-				<div className="collapse navbar-collapse" id="navbarNav">
-					<ul className="navbar-nav">
-						<li className="nav-item">
-							<div className="nav-link" href="#">INICIO</div>
-						</li>
-						<li className="nav-item">
-							<div className="nav-link" href="#">HISTORIA</div>
-						</li>
-						<li className="nav-item">
-							<div className="nav-link" href="#">REGISTRO</div>
-						</li>
-						<li className="nav-item">
-							<div className="nav-link" href="#">TIENDA</div>
-						</li>
-						<li className="nav-item">
-							<div className="nav-link" href="#"></div>
-						</li>
-					</ul>
-				</div>
-				<div className="container-fluid d-flex justify-content-end gap-2">
-					<div className="dropdown">
-						<button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							CLIENTES
-						</button>
-						<ul className="dropdown-menu">
-							<li><a className="dropdown-item" href="#">LOGIN</a></li>
-							<li><a className="dropdown-item" href="#">REGISTRO</a></li>
+			<div className="container-fluid d-flex justify-content-between align-items-center">
+				<div>
+					<div className="collapse navbar-collapse" id="navbarNav">
+						<ul className="navbar-nav">
+							<li className="nav-item">
+								<a className="nav-link" href="/">INICIO</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="/creadores">LOS CREADORES</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="/lapagina">LA PAGINA</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="/tienda">TIENDA</a>
+							</li>
 						</ul>
 					</div>
-					<div className="dropdown">
-						<button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							PROVEEDORES
-						</button>
-						<ul className="dropdown-menu">
-							<li><a className="dropdown-item" href="#">LOGIN</a></li>
-							<li><a className="dropdown-item" href="#">REGISTRO</a></li>
-						</ul>
+				</div>
+				<div>
+					<div>
+						<div className="dropdown">
+							<button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								CLIENTES
+							</button>
+							<ul className="dropdown-menu">
+								<li><a className="dropdown-item" href="/login">LOGIN</a></li>
+								<li><a className="dropdown-item" href="/register/cliente">REGISTRO</a></li>
+							</ul>
+						</div>
+						<div className="dropdown">
+							<button className="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								PROVEEDORES
+							</button>
+							<ul className="dropdown-menu">
+								<li><a className="dropdown-item" href="/login/provider">LOGIN</a></li>
+								<li><a className="dropdown-item" href="/register/proveedor">REGISTRO</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>

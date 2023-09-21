@@ -2,7 +2,9 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Provider, Wedding, Provider_sheet
+
+from api.models import db, User, Provider, Wedding, User_membership, Provider_sheet
+
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
@@ -59,8 +61,6 @@ def handle_provider ():
     except Exception as error: 
         db.session.rollback()
         return jsonify(error.args)
-
-
 
 # Login User
 
@@ -174,6 +174,7 @@ def add_planillacliente():
         return jsonify(error.args), 500 
 
 
+
 #Planilla provider
 
 @api.route('/planilla/provider', methods=['POST'])
@@ -210,4 +211,24 @@ def add_sheet_provider():
         db.session.rollback()
         return jsonify(error.args), 500 
 
+
+
+@api.route('/membresia/cliente', methods=['POST'])
+@jwt_required()
+def add_membresiacliente():
+    data = request.get_json()
+    data_plan_type = data.get("plan_type", None)
+
+    user_data=get_jwt_identity()
+    new_membresiacliente = User_membership(plan_type=data_plan_type, user_id=user_data["id"])
+    
+    try:
+        db.session.add(new_membresiacliente)  
+       
+        db.session.commit() 
+        return jsonify(new_membresiacliente.serialize()), 201
+
+    except Exception as error:
+        db.session.rollback()
+        return jsonify(error.args), 500 
 
