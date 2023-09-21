@@ -15,9 +15,9 @@
 
 .login {
     border: 5px double rgb(136, 186, 136);
-     text-align: center;
+    text-align: center;
+    padding: 10px;
 }
-
 
 .login-title {
     font-size: 30px;
@@ -51,8 +51,11 @@
 }
 
 .planilla {
-    background: url('https://cdn.caratsandcake.com/_images/cache/indian-fusion-wedding-meredith-eshaan-17-232519-1671741093.jpg');
+    background: url('https://cdn.caratsandcake.com/_images/cache/Katelynn-and-Avery-The-Vinoy-Renaissance-St-Petersburg-Resort-and-Golf-Club-014-238830-1676070079.jpg');
     padding: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
 
 }
 
@@ -72,10 +75,11 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-color: black;
+    
 }
 
 .planillatitle {
-    color: rgb(241, 171, 42);
+    color: rgb(139, 30, 48);
 }
 
 .membresiatitle {
@@ -113,4 +117,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 6px double black;
+    padding: 10px;
+}
+
+.fundadoresubtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    border: 6px double black;
+    
+}
+
+.inspotitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+
+.slider {
+    overflow-x: scroll;
+    overscroll-behavior-x: auto;
+}
+
+.card-text-inspo {
+    text-align: left;
 }

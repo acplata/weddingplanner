@@ -15,7 +15,7 @@ import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
 import { ProfileProveedor } from "./pages/ProfileProveedor.jsx";
 import { Tienda } from "./pages/Tienda.jsx";
 import { Creadores } from "./pages/Creadores.jsx";
-import { LaPagina } from "./pages/LaPagina.jsx";
+import { Inspiracion } from "./pages/Inspiracion.jsx";
 
 
 import injectContext from "./store/appContext";
@@ -51,7 +51,7 @@ const Layout = () => {
                         <Route element={<ProfileProveedor />} path="/profile/provider" />
                         <Route element={<Tienda />} path="/tienda" />
                         <Route element={<Creadores />} path="/creadores" />
-                        <Route element={<LaPagina />} path="/lapagina" />
+                        <Route element={<Inspiracion />} path="/inspiracion" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

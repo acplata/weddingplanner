@@ -51,7 +51,7 @@ export const Home = () => {
 			<div>
 				<div className="sobrenosotros row mt-5">
 					<div className="col-12 col-lg-6">
-						<img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/7b6f1626449094-164466-1635504626.jpg" alt="fmesas" height="400" />
+						<img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/Marissa-and-Robert-Zaca-Creek-Ranch-081-246653-1679062027.jpg" alt="fmesas" height="450" />
 					</div>
 					<div className="col-12 col-lg-6 gap-1">
 						<div>

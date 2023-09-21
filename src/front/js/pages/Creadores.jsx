@@ -4,17 +4,17 @@ export const Creadores = () => {
   return (
     <div>
       <div className="container">
-        <div className="fundadorestitle">
+        <div className="fundadorestitle mb-3 mt-3">
           <h2><strong>Somos los Creadores</strong></h2>
         </div>
         <div>
           <div className="row mt-5">
             <div className="col-12 col-lg-6">
-              <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/7b6f1626449094-164466-1635504626.jpg" alt="fmesas" height="400" />
+              <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/Samantha-and-Perry-Topping-Rose-House-040-208649-1657927530.jpg" alt="fmesas" height="400" />
             </div>
-            <div className="col-12 col-lg-6 gap-1">
+            <div className="grid col-12 col-lg-6 gap-1">
               <div>
-                <h3 className="fundadorestitle mb-5"><strong>Manuel Gerdel</strong></h3>
+                <h3 className="fundadoresubtitle mb-3 mt-3"><strong>Manuel Gerdel</strong></h3>
               </div>
               <div className="m-3">
                 <p className="mb-4"><strong>Edad:</strong>  HOLISSSS</p>
@@ -28,9 +28,9 @@ export const Creadores = () => {
         </div>
         <div>
           <div className="row mt-5">
-            <div className="col-12 col-lg-6 gap-1">
+            <div className="grid col-12 col-lg-6 gap-1">
               <div>
-                <h3 className="fundadorestitle mb-5"><strong>Ana Carolina Plata</strong></h3>
+                <h3 className="fundadoresubtitle mb-3 mt-3"><strong>Ana Carolina Plata</strong></h3>
               </div>
               <div className="m-3">
                 <p className="mb-4"><strong>Edad:</strong> 30 años</p>
@@ -41,7 +41,7 @@ export const Creadores = () => {
               </div>
             </div>
             <div className="col-12 col-lg-6">
-              <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/7b6f1626449094-164466-1635504626.jpg" alt="fmesas" height="400" />
+              <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/Kendall-and-Michael-The-Williamsburg-Hotel-012-253073-1682964938.jpg" alt="fmesas" height="400" />
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export const Navbar = () => {
 								<a className="nav-link" href="/creadores">LOS CREADORES</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="/lapagina">LA PAGINA</a>
+								<a className="nav-link" href="/inspiracion">INSPIRACION</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link" href="/tienda">TIENDA</a>
