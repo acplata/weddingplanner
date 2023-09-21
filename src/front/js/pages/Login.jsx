@@ -32,12 +32,13 @@ export const Login = () => {
                         <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/Anna-and-Adam-Private-Residence-47-253992-1683488487.jpg" alt="flower" height="500" />
                     </div>
                     <form className="col-12 col-lg-6">
-                        <div className="login mt-5">
-                            <div className="login-title mb-4"><strong>A+M Wedding Planners</strong></div>
+                        <h2 className="d-flex justify-content-center align-items-center"><strong>Cliente</strong></h2>
+                        <div className="login mt-4">
+                            <div className="login-title mb-4"><strong>Inicia Sesión</strong></div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label"><strong>Email</strong></label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" onChange={handleChange} />
-                                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                <div id="emailHelp" className="form-text">No compartiremos tu email con nadie.</div>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label"><strong>Contraseña</strong></label>
@@ -46,7 +47,7 @@ export const Login = () => {
                             <div>
                                 <p>¿Se te olvidó tu contraseña?</p>
                             </div>
-                            <button type="button" className="btn btn-white" onClick={handleSend}>Ingresar</button>
+                            <button type="button" className="btn btn-white mb-3" onClick={handleSend}>Ingresar</button>
                         </div>
                     </form>
                     <div className="col-12 col-lg-3">

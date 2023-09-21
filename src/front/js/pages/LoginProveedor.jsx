@@ -32,8 +32,8 @@ export const LoginProveedor = () => {
                     </div>
                     <form className="col-12 col-lg-6">
                         <h2 className="d-flex justify-content-center fw-bold">Proveedor</h2>
-                        <div className="registerproveedor mt-5">
-                            <div className="login-title mb-4"><strong>Inicia sesión </strong></div>
+                        <div className="registerproveedor mt-4">
+                            <div className="login-title mb-4"><strong>Inicia Sesión</strong></div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label"><strong>Email</strong></label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" onChange={handleChange} />
@@ -46,7 +46,7 @@ export const LoginProveedor = () => {
                             <div>
                                 <p>¿Se te olvidó tu contraseña?</p>
                             </div>
-                            <button type="button" className="btn btn-white" onClick={handleSend} >Ingresar</button>
+                            <button type="button" className="btn btn-white mb-3" onClick={handleSend} >Ingresar</button>
                         </div>
                     </form>
                     <div className="col-12 col-lg-3">

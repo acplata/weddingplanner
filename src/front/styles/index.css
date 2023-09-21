@@ -53,6 +53,7 @@
 .planilla {
     background: url('https://cdn.caratsandcake.com/_images/cache/indian-fusion-wedding-meredith-eshaan-17-232519-1671741093.jpg');
     padding: 120px;
+
 }
 
 .planilla2 {
@@ -70,8 +71,39 @@
     color: rgb(241, 171, 42);
 }
 
+.membresiatitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(214, 189, 49);
+}
+
+.card-img-top1 {
+    margin: 10px;
+    border-radius: 2%;
+}
+
+.card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .membresiacliente {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.card {
+    margin: 20px;
+    border: 6px double rgb(246, 236, 180);
+    border-radius: 2%;
+}
+
+.fundadorestitle {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
