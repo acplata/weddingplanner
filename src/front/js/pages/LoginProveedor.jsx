@@ -26,12 +26,12 @@ export const LoginProveedor = () => {
     return (
         <div>
             <div className="logintemplate">
-                <div className="row container">
+                <div className="row container mt-5">
                     <div className="col-12 col-lg-3">
                         <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/carole-and-joseph-marriott-irvine-spectrum-48-207880-1657306429.jpg" alt="flower" height="500" />
                     </div>
                     <form className="col-12 col-lg-6">
-                        <h2 className="d-flex justify-content-center fw-bold">Proveedor</h2>
+                        <h2 className="d-flex justify-content-center fw-bold">PROVEEDOR</h2>
                         <div className="registerproveedor mt-4">
                             <div className="login-title mb-4"><strong>Inicia Sesión</strong></div>
                             <div className="mb-3">
