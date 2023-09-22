@@ -44,9 +44,9 @@ const Layout = () => {
                         <Route element={<MembresiaCliente />} path="/membresia/cliente" />
                         <Route element={<LoginProveedor />} path="/login/provider" />
                         <Route element={<RegisterCliente />} path="/register/cliente" />
-                        <Route element={<RegisterProveedor />} path="/register/proveedor" />
+                        <Route element={<RegisterProveedor />} path="/register/provider" />
                         <Route element={<PlanillaCliente />} path="/planilla/cliente" />
-                        <Route element={<PlanillaProveedor />} path="/planilla/proveedor" />
+                        <Route element={<PlanillaProveedor />} path="/planilla/provider" />
                         <Route element={<ProfileCliente />} path="/profile/user" />
                         <Route element={<ProfileProveedor />} path="/profile/provider" />
                         <Route element={<Tienda />} path="/tienda" />
