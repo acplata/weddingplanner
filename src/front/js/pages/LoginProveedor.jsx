@@ -16,12 +16,17 @@ export const LoginProveedor = () => {
         setloginInfo({ ...loginInfo, [e.target.name]: e.target.value })
     };
 
+    const handleHola = (e) => {
+        console.log('hola mundo')
+    }
+
     const handleSend = async () => {
         const result = await actions.loginProvider(loginInfo);
         console.log(result)
         if (result) return navigate("/profile/provider");
         alert("Inicio de sesión inválido")
     };
+
 
     return (
         <div>

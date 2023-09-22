@@ -11,14 +11,14 @@ const initialValue = {
     company_industry: "",
     company_description: "",
     presupuesto_minimo_de_usuario: 0,
-    clients_amount_per_month_question: "",
-    clients_amount_per_wedding_question: "",
+    clients_amount_per_month_question: false,
+    clients_amount_per_wedding_question: false,
 }
 
 export const PlanillaProveedor = () => {
     const { actions } = useContext(Context);
 
-    const param = useParams();
+    // const param = useParams();
 
     const [newProvider, setNewProvider] = useState(initialValue);
 
@@ -30,6 +30,7 @@ export const PlanillaProveedor = () => {
     const addNewProvider = () => {
         actions.addWedding(newProvider);
         console.log(newProvider)
+        navigate('/membresia/user');
     };
 
     const handleChangeRadio = (event, value) => {
@@ -76,13 +77,13 @@ export const PlanillaProveedor = () => {
                         <legend className="col-form-label col-sm-2 pt-0">¿Tiene un mínimo de clientes por mes?</legend>
                         <div className="col-sm-10">
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="food_question" id="gridRadios1" checked={newProvider.clients_amount_per_month_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                <input className="form-check-input" type="radio" name="clients_amount_per_month_question" id="gridRadios1" checked={newProvider.clients_amount_per_month_question} onClick={(event) => handleChangeRadio(event, true)} />
                                 <label className="form-check-label" htmlFor="gridRadios1">
                                     Si
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="food_question" id="gridRadios2" checked={!newProvider.clients_amount_per_month_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                <input className="form-check-input" type="radio" name="clients_amount_per_month_question" id="gridRadios2" checked={!newProvider.clients_amount_per_month_question} onClick={(event) => handleChangeRadio(event, false)} />
                                 <label className="form-check-label" htmlFor="gridRadios2">
                                     No
                                 </label>
@@ -97,13 +98,13 @@ export const PlanillaProveedor = () => {
                         <legend className="col-form-label col-sm-2 pt-0">¿Tiene un mínimo de clientes por boda? </legend>
                         <div className="col-sm-10">
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="music_question" id="gridRadios1" checked={newProvider.clients_amount_per_wedding_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                <input className="form-check-input" type="radio" name="clients_amount_per_wedding_question" id="gridRadios1" checked={newProvider.clients_amount_per_wedding_question} onClick={(event) => handleChangeRadio(event, true)} />
                                 <label className="form-check-label" htmlFor="gridRadios1">
                                     Si
                                 </label>
                             </div>
                             <div className="form-check mb-2">
-                                <input className="form-check-input" type="radio" name="music_question" id="gridRadios2" checked={!newProvider.clients_amount_per_wedding_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                <input className="form-check-input" type="radio" name="clients_amount_per_wedding_question" id="gridRadios2" checked={!newProvider.clients_amount_per_wedding_question} onClick={(event) => handleChangeRadio(event, false)} />
                                 <label className="form-check-label" htmlFor="gridRadios2">
                                     No
                                 </label>
