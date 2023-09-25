@@ -20,7 +20,7 @@ export const Login = () => {
     const handleSend = async () => {
         const result = await actions.loginUser(loginInfo);
         console.log(result)
-        if (result) return navigate("/profile/user");
+        if (result) return navigate("/planilla/cliente");
         alert("Inicio de sesión inválido")
     };
 

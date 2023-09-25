@@ -19,14 +19,10 @@ export const RegisterCliente = () => {
     };
 
     const handleSubmit = () => {
-        if (
-            actions.registerUser(registerClient) == true
-        ) {
-            navigate('/planilla/cliente');
-        }
-        else {
-            alert("Hay un error en el registro")
-        }
+        const result = actions.registerUser(registerClient);
+        console.log(result)
+        if (result) return navigate('/login/user');
+        alert("Hay un error en el registro");
     };
 
     return (
@@ -70,6 +66,5 @@ export const RegisterCliente = () => {
             </div >
 
         </div >
-
     );
 };

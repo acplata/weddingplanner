@@ -37,7 +37,7 @@ export const PlanillaCliente = () => {
     const addNewWedding = () => {
         actions.addWedding(newWedding);
         console.log(newWedding)
-        navigate('/membresia/user');
+        navigate('/membresia/cliente');
     };
 
     const handleChangeRadio = (event, value) => {
@@ -48,7 +48,7 @@ export const PlanillaCliente = () => {
     return (
         <div>
             <div className="container mt-3">
-                <div className="planilla row">
+                <div className="planilla">
                     <div className="planilla2 container col-12">
                         <div className="planillatitle d-flex justify-content-center align-items-center">
                             <h3 className="mb-3 mt-3"><strong>¡Informacion de tu Boda!</strong></h3>

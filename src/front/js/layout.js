@@ -12,6 +12,7 @@ import { RegisterProveedor } from "./pages/RegisterProveedor.jsx";
 import { PlanillaProveedor } from "./pages/PlanillaProveedor.jsx";
 import { ProfileCliente } from "./pages/ProfileCliente.jsx";
 import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
+import { MembresiaProveedor } from "./pages/MembresiaProveedor.jsx";
 import { ProfileProveedor } from "./pages/ProfileProveedor.jsx";
 import { Tienda } from "./pages/Tienda.jsx";
 import { Creadores } from "./pages/Creadores.jsx";
@@ -40,8 +41,9 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<Login />} path="/login" />
+                        <Route element={<Login />} path="/login/user" />
                         <Route element={<MembresiaCliente />} path="/membresia/cliente" />
+                        <Route element={<MembresiaProveedor />} path="/membresia/provider" />
                         <Route element={<LoginProveedor />} path="/login/provider" />
                         <Route element={<RegisterCliente />} path="/register/cliente" />
                         <Route element={<RegisterProveedor />} path="/register/provider" />

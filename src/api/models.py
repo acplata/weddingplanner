@@ -57,7 +57,6 @@ class Wedding(db.Model):
     presupuesto_estimado = db.Column(db.Integer, nullable=False)
     place = db.Column(db.String(500), nullable=False)
     guests_average = db.Column(db.Integer, nullable=False)
-
     food_question = db.Column(db.Boolean(),nullable=False)
     music_question = db.Column(db.Boolean(),nullable=False)
     visual_media_question = db.Column(db.Boolean(),nullable=False)
@@ -96,7 +95,9 @@ class Provider_sheet(db.Model):
     company_description = db.Column(db.String(200), nullable=False)
     presupuesto_minimo_de_usuario = db.Column(db.Integer, nullable=False)
     clients_amount_per_month_question = db.Column(db.Boolean(), nullable=False)
+    clients_amount_per_month_value = db.Column(db.Integer, nullable=False)
     clients_amount_per_wedding_question = db.Column(db.Boolean(), nullable=False)
+    clients_amount_per_wedding_value = db.Column(db.Integer, nullable=False)
 
     #relations
     provider_id = db.Column(db.Integer, db.ForeignKey("provider.id"), nullable=False)
@@ -112,8 +113,10 @@ class Provider_sheet(db.Model):
             "company_industry": self.company_industry,
             "company_description": self.company_description,
             "presupuesto_minimo_de_usuario": self.presupuesto_minimo_de_usuario,
-            "clients_amount_per_month_question": self.clients_amount_per_month_question, 
+            "clients_amount_per_month_question": self.clients_amount_per_month_question,
+            "clients_amount_per_month_value": self.clients_amount_per_month_value,
             "clients_amount_per_wedding_question": self.clients_amount_per_wedding_question,
+            "clients_amount_per_wedding_value": self.clients_amount_per_wedding_value,
         }
     
 
