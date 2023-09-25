@@ -10,16 +10,10 @@ export const MembresiaProveedor = () => {
     const selectProviderMembership = (membership) => {
         console.log("membresia", membership)
         const reqBody = { plan_type: membership }
-
-        if (
-            actions.addMembership(reqBody) == true
-        ) {
-            navigate('/profile/user');
-        }
-        else {
-            alert("No escogiste un plan")
-        }
-    }
+        const result = actions.addProviderMembership(reqBody);
+        if (result) return navigate('/profile/provider');
+        alert("No escogiste un plan");
+    };
 
     return (
 

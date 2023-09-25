@@ -149,13 +149,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addMembership: async (User_membership) => {
+			addUserMembership: async (User_membership) => {
 
 				try {
 					const store = getStore();
 					const response = await fetch(`${store.backendUrl}/api/membresia/cliente`, {
 						body: JSON.stringify(User_membership),
 
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`,
+						},
+					});
+
+					const data = await response.json();
+					if (response.status !== 201) {
+						return false;
+					} else {
+						return true;
+					}
+
+				} catch (error) {
+					console.log("Hay un error")
+				}
+			},
+
+			addProviderMembership: async (Provider_membership) => {
+
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/membresia/proveedor`, {
+						body: JSON.stringify(Provider_membership),
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",

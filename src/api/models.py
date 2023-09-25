@@ -65,7 +65,8 @@ class Wedding(db.Model):
 
     #relations
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
+    membership = db.relationship("User_membership", backref= "Wedding")
+    
     def __repr__(self):
         return f'<Wedding {self.name_novia}>'
 
@@ -101,6 +102,8 @@ class Provider_sheet(db.Model):
 
     #relations
     provider_id = db.Column(db.Integer, db.ForeignKey("provider.id"), nullable=False)
+    membership = db.relationship("Provider_membership", backref= "Provider_sheet")
+
 
     def __repr__(self):
      return f'<Provider_sheet {self.company_name}>'
@@ -143,6 +146,7 @@ class Provider_membership(db.Model):
 
     #relations
     provider_sheet_id = db.Column(db.Integer, db.ForeignKey("provider_sheet.id"), nullable=False)
+
     
     def __repr__(self):
         return f'< Provider_membership{self.plan_type}>'

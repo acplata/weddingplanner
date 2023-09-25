@@ -223,14 +223,13 @@ def add_membresiacliente():
     data = request.get_json()
     data_plan_type = data.get("plan_type", None)
 
-    user_data=get_jwt_identity()
-    new_membresiacliente = User_membership(plan_type=data_plan_type, user_id=user_data["id"])
+    wedding_data=get_jwt_identity()
+    new_membresia_cliente = User_membership(plan_type=data_plan_type, wedding_id=wedding_data["id"])
     
     try:
-        db.session.add(new_membresiacliente)  
-       
+        db.session.add(new_membresia_cliente)  
         db.session.commit() 
-        return jsonify(new_membresiacliente.serialize()), 201
+        return jsonify(new_membresia_cliente.serialize()), 201
 
     except Exception as error:
         db.session.rollback()
@@ -244,7 +243,7 @@ def add_provider_membership():
     data_plan_type = data.get("plan_type", None)
 
     provider_data=get_jwt_identity()
-    new_provider_membership = Provider_membership(plan_type=data_plan_type, provider_id=provider_data["id"])
+    new_provider_membership = Provider_membership(plan_type=data_plan_type, provider_sheet_id=provider_data["id"])
     
     try:
         db.session.add(new_provider_membership)  
