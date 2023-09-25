@@ -16,14 +16,10 @@ export const LoginProveedor = () => {
         setloginInfo({ ...loginInfo, [e.target.name]: e.target.value })
     };
 
-    const handleHola = (e) => {
-        console.log('hola mundo')
-    }
-
     const handleSend = async () => {
         const result = await actions.loginProvider(loginInfo);
         console.log(result)
-        if (result) return navigate("/profile/provider");
+        if (result) return navigate("/planilla/provider");
         alert("Inicio de sesión inválido")
     };
 
@@ -31,12 +27,12 @@ export const LoginProveedor = () => {
     return (
         <div>
             <div className="logintemplate">
-                <div className="row container mt-5">
+                <div className="row container">
                     <div className="col-12 col-lg-3">
                         <img className="w-100" src="https://cdn.caratsandcake.com/_images/cache/carole-and-joseph-marriott-irvine-spectrum-48-207880-1657306429.jpg" alt="flower" height="500" />
                     </div>
                     <form className="col-12 col-lg-6">
-                        <h2 className="d-flex justify-content-center fw-bold">PROVEEDOR</h2>
+                        <h2 className="d-flex justify-content-center fw-bold">Proveedor</h2>
                         <div className="registerproveedor mt-4">
                             <div className="login-title mb-4"><strong>Inicia Sesión</strong></div>
                             <div className="mb-3">

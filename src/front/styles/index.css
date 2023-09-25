@@ -53,7 +53,7 @@
 .planilla {
     background: url('https://cdn.caratsandcake.com/_images/cache/Katelynn-and-Avery-The-Vinoy-Renaissance-St-Petersburg-Resort-and-Golf-Club-014-238830-1676070079.jpg');
     padding: 120px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     margin: auto;
 
@@ -62,7 +62,7 @@
 .planilla-provider {
     background: url('https://cdn.caratsandcake.com/_images/cache/loews-vanderbilt-hotel-thumb-258077-1687793414.jpg');
     padding: 120px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -89,6 +89,11 @@
     color: rgb(214, 189, 49);
 }
 
+.membership-user-images {
+    height: 500px;
+    background-size: cover;
+}
+
 .card-img-top1 {
     margin: 10px;
     border-radius: 2%;
@@ -112,6 +117,16 @@
     border: 6px double rgb(246, 236, 180);
     border-radius: 2%;
 }
+
+.card-membership-provider {
+    border-color: rgb(62, 17, 62);
+}
+
+.membership-card-image {
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+};
 
 .fundadorestitle {
     display: flex;

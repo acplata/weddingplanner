@@ -12,7 +12,8 @@ const initialValue = {
 
 export const RegisterProveedor = () => {
     const { store, actions } = useContext(Context);
-    const [registerProvider, setRegisterProvider] = useState(initialValue)
+    const [registerProvider, setRegisterProvider] = useState(initialValue);
+    const [isHuman, setIsHuman] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -49,10 +50,13 @@ export const RegisterProveedor = () => {
                             <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={handleChange} />
                         </div>
                         <div className="mb-3 form-check d-flex justify-content-center align-items-center gap-2">
-                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                            <input type="checkbox" className="form-check-input" id="exampleCheck1" checked={isHuman} onClick={() => {
+                                setIsHuman(!isHuman)
+                            }} />
+
                             <label className="form-check-label" htmlFor="exampleCheck1">Soy un humano</label>
                         </div>
-                        <button type="button" className="btn btn-white mb-3" onClick={handleSubmit}>¡Regístrate!</button>
+                        <button type="button" className="btn btn-white mb-3" disabled={!isHuman} onClick={handleSubmit}>¡Regístrate!</button>
                     </form>
                 </div>
                 <div className="col-12 col-md-6">

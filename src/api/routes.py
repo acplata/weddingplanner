@@ -3,7 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
 
-from api.models import db, User, Provider, Wedding, User_membership, Provider_sheet
+from api.models import db, User, Provider, Wedding, User_membership, Provider_sheet, Provider_membership
 
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -187,7 +187,9 @@ def add_sheet_provider():
     data_company_description = data.get("company_description", None)
     data_presupuesto_minimo_de_usuario = data.get("presupuesto_minimo_de_usuario", None)
     data_clients_amount_per_month_question = data.get("clients_amount_per_month_question", None)
+    data_clients_amount_per_month_value = data.get("clients_amount_per_month_value", None)
     data_clients_amount_per_wedding_question = data.get("clients_amount_per_wedding_question", None)
+    data_clients_amount_per_wedding_value = data.get("clients_amount_per_wedding_value", None)
 
     # if not data_company_name or not data_RIF or not data_company_industry or not data_company_description or not data_presupuesto_minimo_de_usuario or not data_clients_amount_per_month_question or not data_clients_amount_per_wedding_question:
     #     return jsonify({"error": "Todos los campos son requeridos"}), 400
@@ -199,7 +201,9 @@ def add_sheet_provider():
                                          company_description = data_company_description,
                                          presupuesto_minimo_de_usuario = data_presupuesto_minimo_de_usuario,
                                          clients_amount_per_month_question = data_clients_amount_per_month_question,
+                                         clients_amount_per_month_value = data_clients_amount_per_month_value,
                                          clients_amount_per_wedding_question = data_clients_amount_per_wedding_question,
+                                         clients_amount_per_wedding_value = data_clients_amount_per_wedding_value,
                                          provider_id=provider_data["id"])
     print(new_provider_sheet)
     try:
@@ -232,3 +236,22 @@ def add_membresiacliente():
         db.session.rollback()
         return jsonify(error.args), 500 
 
+
+@api.route('/membresia/proveedor', methods=['POST'])
+@jwt_required()
+def add_provider_membership():
+    data = request.get_json()
+    data_plan_type = data.get("plan_type", None)
+
+    provider_data=get_jwt_identity()
+    new_provider_membership = Provider_membership(plan_type=data_plan_type, provider_id=provider_data["id"])
+    
+    try:
+        db.session.add(new_provider_membership)  
+       
+        db.session.commit() 
+        return jsonify(new_provider_membership.serialize()), 201
+
+    except Exception as error:
+        db.session.rollback()
+        return jsonify(error.args), 500 

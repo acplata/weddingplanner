@@ -130,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const store = getStore();
 					const response = await fetch(`${store.backendUrl}/api/planilla/provider`, {
 						body: JSON.stringify(provider),
-            method: "POST",
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 							"Authorization": `Bearer ${store.token}`,
@@ -147,7 +147,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("Hay un error")
 				}
-},
+			},
 
 			addMembership: async (User_membership) => {
 
