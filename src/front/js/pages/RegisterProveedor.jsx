@@ -21,8 +21,9 @@ export const RegisterProveedor = () => {
     };
 
     const handleSubmit = () => {
-        actions.registerProvider(registerProvider)
-        navigate('/login/provider');
+        const result = actions.registerProvider(registerProvider);
+        if (result) return navigate('/login/provider');
+        toast.error("Hay un error en el registro");
     };
 
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +23,7 @@ export const RegisterCliente = () => {
         const result = actions.registerUser(registerClient);
         console.log(result)
         if (result) return navigate('/login/user');
-        alert("Hay un error en el registro");
+        toast.error("Hay un error en el registro");
     };
 
     return (

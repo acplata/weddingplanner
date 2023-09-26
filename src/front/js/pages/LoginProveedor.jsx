@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
@@ -20,7 +21,7 @@ export const LoginProveedor = () => {
         const result = await actions.loginProvider(loginInfo);
         console.log(result)
         if (result) return navigate("/planilla/provider");
-        alert("Inicio de sesión inválido")
+        toast.error("Inicio de sesión inválido")
     };
 
 

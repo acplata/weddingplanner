@@ -89,13 +89,13 @@ export const PlanillaCliente = () => {
                             <legend className="col-form-label col-sm-2 pt-0">Comida</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="food_question" id="gridRadios1" checked={newWedding.food_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                    <input className="form-check-input" type="radio" name="food_question" id="gridRadios1" checked={newWedding.food_question} onChange={(event) => handleChangeRadio(event, true)} />
                                     <label className="form-check-label" htmlFor="gridRadios1">
                                         Si
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="food_question" id="gridRadios2" checked={!newWedding.food_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                    <input className="form-check-input" type="radio" name="food_question" id="gridRadios2" checked={!newWedding.food_question} onChange={(event) => handleChangeRadio(event, false)} />
                                     <label className="form-check-label" htmlFor="gridRadios2">
                                         No
                                     </label>
@@ -110,13 +110,13 @@ export const PlanillaCliente = () => {
                             <legend className="col-form-label col-sm-2 pt-0">Musica</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="music_question" id="gridRadios1" checked={newWedding.music_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                    <input className="form-check-input" type="radio" name="music_question" id="gridRadios1" checked={newWedding.music_question} onChange={(event) => handleChangeRadio(event, true)} />
                                     <label className="form-check-label" htmlFor="gridRadios1">
                                         Si
                                     </label>
                                 </div>
                                 <div className="form-check mb-2">
-                                    <input className="form-check-input" type="radio" name="music_question" id="gridRadios2" checked={!newWedding.music_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                    <input className="form-check-input" type="radio" name="music_question" id="gridRadios2" checked={!newWedding.music_question} onChange={(event) => handleChangeRadio(event, false)} />
                                     <label className="form-check-label" htmlFor="gridRadios2">
                                         No
                                     </label>
@@ -131,13 +131,13 @@ export const PlanillaCliente = () => {
                             <legend className="col-form-label col-sm-2 pt-0">Fotografia y/o Video</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="visual_media_question" id="gridRadios1" checked={newWedding.visual_media_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                    <input className="form-check-input" type="radio" name="visual_media_question" id="gridRadios1" checked={newWedding.visual_media_question} onChange={(event) => handleChangeRadio(event, true)} />
                                     <label className="form-check-label" htmlFor="gridRadios1">
                                         Si
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="visual_media_question" id="gridRadios2" checked={!newWedding.visual_media_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                    <input className="form-check-input" type="radio" name="visual_media_question" id="gridRadios2" checked={!newWedding.visual_media_question} onChange={(event) => handleChangeRadio(event, false)} />
                                     <label className="form-check-label" htmlFor="gridRadios2">
                                         No
                                     </label>
@@ -152,13 +152,13 @@ export const PlanillaCliente = () => {
                             <legend className="col-form-label col-sm-2 pt-0">Tramites Legales y/o Religiosos</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="legal_documentation_question" id="gridRadios1" checked={newWedding.legal_documentation_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                    <input className="form-check-input" type="radio" name="legal_documentation_question" id="gridRadios1" checked={newWedding.legal_documentation_question} onChange={(event) => handleChangeRadio(event, true)} />
                                     <label className="form-check-label" htmlFor="gridRadios1">
                                         Si
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="legal_documentation_question" id="gridRadios2" checked={!newWedding.legal_documentation_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                    <input className="form-check-input" type="radio" name="legal_documentation_question" id="gridRadios2" checked={!newWedding.legal_documentation_question} onChange={(event) => handleChangeRadio(event, false)} />
                                     <label className="form-check-label" htmlFor="gridRadios2">
                                         No
                                     </label>
@@ -173,13 +173,13 @@ export const PlanillaCliente = () => {
                             <legend className="col-form-label col-sm-2 pt-0">Vestimenta</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="cloth_question" id="gridRadios1" checked={newWedding.cloth_question} onClick={(event) => handleChangeRadio(event, true)} />
+                                    <input className="form-check-input" type="radio" name="cloth_question" id="gridRadios1" checked={newWedding.cloth_question} onChange={(event) => handleChangeRadio(event, true)} />
                                     <label className="form-check-label" htmlFor="gridRadios1">
                                         Si
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="cloth_question" id="gridRadios2" checked={!newWedding.cloth_question} onClick={(event) => handleChangeRadio(event, false)} />
+                                    <input className="form-check-input" type="radio" name="cloth_question" id="gridRadios2" checked={!newWedding.cloth_question} onChange={(event) => handleChangeRadio(event, false)} />
                                     <label className="form-check-label" htmlFor="gridRadios2">
                                         No
                                     </label>

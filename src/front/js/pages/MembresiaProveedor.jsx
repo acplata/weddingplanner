@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
@@ -12,7 +13,7 @@ export const MembresiaProveedor = () => {
         const reqBody = { plan_type: membership }
         const result = actions.addProviderMembership(reqBody);
         if (result) return navigate('/profile/provider');
-        alert("No escogiste un plan");
+        toast.error("No escogiste un plan");
     };
 
     return (
