@@ -163,3 +163,9 @@
 .card-text-inspo {
     text-align: left;
 }
+
+.card-profile-img {
+    width: 380px;
+    height: 500px;
+    border-radius: 5%;
+}
