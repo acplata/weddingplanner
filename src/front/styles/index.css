@@ -94,9 +94,12 @@
     background-size: cover;
 }
 
-.card-img-top1 {
+.cardmemb-img-top1 {
     margin: 10px;
     border-radius: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-title {
@@ -105,17 +108,12 @@
     align-items: center;
 }
 
-.membresiacliente {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-}
-
-.card {
+.cardmemb {
     margin: 20px;
     border: 6px double rgb(246, 236, 180);
     border-radius: 2%;
+    padding: 20px;
+    height: 850px;
 }
 
 .card-membership-provider {
