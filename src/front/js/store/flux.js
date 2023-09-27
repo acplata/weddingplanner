@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			backendUrl: process.env.BACKEND_URL,
 			token: JSON.parse(localStorage.getItem("token")) || "",
 			userData: {},
+			// presupuesto_estimado: JSON.stringify(),
 		},
 
 		actions: {

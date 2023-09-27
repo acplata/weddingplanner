@@ -165,7 +165,29 @@
 }
 
 .card-profile-img {
-    width: 380px;
-    height: 500px;
+    width: 145px;
+    height: 155px;
+    border-radius: 50%;
+}
+
+.profile-layout1 {
+    border: 6px double rgb(246, 236, 180);
+    background-color: white;
+}
+
+.profile-layout2 {
+    border: 1px solid rgb(158, 146, 91);
+    
+}
+
+.profile-guide-layout {
+    padding: 25px;
+    margin: 20px;
+    border: 6px solid rgb(158, 145, 69);
+    border-radius: 25%;
+}
+
+.card-profile {
     border-radius: 5%;
+    height: 400px;
 }
