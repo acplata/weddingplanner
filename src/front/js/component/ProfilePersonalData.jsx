@@ -2,7 +2,7 @@ import React from "react";
 
 export const ProfilePersonalData = () => {
     return (
-        <div class="col-3">
+        <div class="col-3 h-100">
             <div class="profile-layout1 mt-2">
                 <div class="card-body">
 

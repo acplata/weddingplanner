@@ -191,3 +191,8 @@
     border-radius: 5%;
     height: 400px;
 }
+
+.profile-row {
+    max-height: 330px;
+    grid-auto-rows: 1fr;
+}

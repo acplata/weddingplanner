@@ -2,7 +2,7 @@ import React from "react";
 
 export const ProfileGuides = () => {
     return (
-        <div className="slider container overflow-y-scroll tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <div className=" profile-row container overflow-y-scroll tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
 
             <div className="profile-guide-layout mt-3">
                 <div classNameName="card-profile-guia">

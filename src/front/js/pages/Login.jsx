@@ -48,7 +48,7 @@ export const Login = () => {
                             <div>
                                 <p>¿Se te olvidó tu contraseña?</p>
                             </div>
-                            <button type="button" className="btn btn-white mb-3" onClick={handleSend}>Ingresar</button>
+                            <button type="buttoncard" className="btn btn-white mb-3" onClick={handleSend}>Ingresar</button>
                         </div>
                     </form>
                     <div className="col-12 col-lg-3">

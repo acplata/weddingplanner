@@ -23,8 +23,8 @@ export const ProfileListaProveedores = () => {
                             <p className="card-text-inspo"><i><strong>Nombre de proveedor</strong></i></p>
                             <p>Descripción de proveedor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint illum architecto, voluptate labore fugiat laudantium?</p>
                             <button className="btn  me-3">Contacto</button>
-                            <button className="btn  me-3"><i class="fa-regular fa-star"></i></button>
-                            <button className="btn"><i class="fa-regular fa-thumbs-down"></i></button>
+                            <button className="btn  me-3"><i className="fa-regular fa-star"></i></button>
+                            <button className="btn"><i className="fa-regular fa-thumbs-down"></i></button>
                         </div>
                     </div>
 

@@ -15,45 +15,44 @@ export const ProfileCliente = () => {
     return (
         <>
 
-            <div>
-                <div className="container">
-                    <div class="row">
+            <div className="container">
+                <div className="row profile-row mb-5">
 
-                        <ProfilePersonalData />
+                    <ProfilePersonalData />
 
-                        <div className="col-9 profile-layout1 mt-2">
-                            <div>
-                                <ul className="nav nav-tabs mt-2" id="myTab" role="tablist">
-                                    <li className="nav-item " role="presentation">
-                                        <button className="nav-link active text-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">To Do Lists</button>
-                                    </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link text-dark" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Perfil</button>
-                                    </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link text-dark" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Guías</button>
-                                    </li>
-                                </ul>
+                    <div className="col-9 profile-layout1 mt-2">
+                        <div>
+                            <ul className="nav nav-tabs mt-2" id="myTab" role="tablist">
+                                <li className="nav-item " role="presentation">
+                                    <button className="nav-link active text-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">To Do Lists</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link text-dark" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Perfil</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link text-dark" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Guías</button>
+                                </li>
+                            </ul>
 
-                                {/*  Todos */}
-                                <div className="tab-content" id="myTabContent">
+                            {/*  Todos */}
+                            <div className="tab-content mh-100" id="myTabContent">
 
-                                    <ProfileTodos />
+                                <ProfileTodos />
 
-                                    <ProfileInfo />
+                                <ProfileInfo />
 
-                                    <ProfileGuides />
+                                <ProfileGuides />
 
-                                </div>
                             </div>
                         </div>
-
                     </div>
 
-                    <ProfileListaProveedores />
-
                 </div>
+
+                <ProfileListaProveedores />
+
             </div>
+
 
         </>
     );
