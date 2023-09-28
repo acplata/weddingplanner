@@ -17,7 +17,7 @@ import { ProfileCliente } from "./pages/ProfileCliente.jsx";
 import { MembresiaCliente } from "./pages/MembresiaCliente.jsx";
 import { MembresiaProveedor } from "./pages/MembresiaProveedor.jsx";
 import { ProfileProveedor } from "./pages/ProfileProveedor.jsx";
-import { Tienda } from "./pages/Tienda.jsx";
+import { Proyecto } from "./pages/Proyecto.jsx";
 import { Creadores } from "./pages/Creadores.jsx";
 import { Inspiracion } from "./pages/Inspiracion.jsx";
 
@@ -79,7 +79,7 @@ const Layout = () => {
                         <Route element={<PlanillaProveedor />} path="/planilla/provider" />
                         <Route element={<ProfileCliente />} path="/profile/user" />
                         <Route element={<ProfileProveedor />} path="/profile/provider" />
-                        <Route element={<Tienda />} path="/tienda" />
+                        <Route element={<Proyecto />} path="/proyecto" />
                         <Route element={<Creadores />} path="/creadores" />
                         <Route element={<Inspiracion />} path="/inspiracion" />
                         <Route element={<h1>Not found!</h1>} />
