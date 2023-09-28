@@ -11,7 +11,6 @@ export const ProfilePersonalData = () => {
                     </div>
                     <div className="container text-center">
                         <h5 className="mt-3"><b>Boda de:</b> Daniela</h5>
-                        <h6 className="mt-3"><b>ID:</b> 3000</h6>
                     </div>
 
                     <ul className="list-group list-group-flush mt-3">

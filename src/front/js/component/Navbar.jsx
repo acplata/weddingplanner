@@ -15,13 +15,13 @@ export const Navbar = () => {
 								<a className="nav-link" href="/">INICIO</a>
 							</li>
 							<li className="nav-item">
+								<a className="nav-link" href="/inspiracion">WEDDING INSPO</a>
+							</li>
+							<li className="nav-item">
 								<a className="nav-link" href="/creadores">LOS CREADORES</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="/inspiracion">INSPIRACION</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link" href="/tienda">TIENDA</a>
+								<a className="nav-link" href="/tienda">PROYECTO</a>
 							</li>
 						</ul>
 					</div>
