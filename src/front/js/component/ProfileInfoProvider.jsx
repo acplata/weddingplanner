@@ -9,6 +9,7 @@ export const ProfileInfoProvider = () => {
             <p className="mt-3"><b>Presupuesto mínimo de trabajo:</b> {store.sheetData?.presupuesto_minimo_de_usuario}</p>
             <p><b>Límite de clientes por mes:</b>  {store.sheetData?.clients_amount_per_month_value == 0 ? "Ninguno" : store.sheetData?.clients_amount_per_month_value} </p>
             <p><b>Límite de clientes por boda:</b> {store.sheetData?.clients_amount_per_wedding_value == 0 ? "Ninguno" : store.sheetData?.clients_amount_per_wedding_value} </p>
+            <p></p>
         </div>
     )
 }
