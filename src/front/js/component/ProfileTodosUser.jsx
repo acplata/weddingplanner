@@ -1,8 +1,8 @@
 import React from "react";
 
-export const ProfileTodos = () => {
+export const ProfileTodosUser = () => {
     return (
-        <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
             <ul className="mt-3">
                 <li>Tarea 1</li>
                 <li>Tarea 2</li>

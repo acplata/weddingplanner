@@ -18,10 +18,11 @@ export const Login = () => {
         setloginInfo({ ...loginInfo, [e.target.name]: e.target.value })
     };
 
-    const handleSend = async () => {
+    const handleSend = async (e) => {
+        e.preventDefault()
         const result = await actions.loginUser(loginInfo);
         console.log(result)
-        if (result) return navigate("/planilla/cliente");
+        if (result) return navigate(result);
         toast.error("Inicio de sesión inválido")
     };
 
@@ -48,7 +49,7 @@ export const Login = () => {
                             <div>
                                 <p>¿Se te olvidó tu contraseña?</p>
                             </div>
-                            <button type="buttoncard" className="btn btn-white mb-3" onClick={handleSend}>Ingresar</button>
+                            <button type="button" className="btn btn-white mb-3" onClick={handleSend}>Ingresar</button>
                         </div>
                     </form>
                     <div className="col-12 col-lg-3">

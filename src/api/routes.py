@@ -82,8 +82,15 @@ def login_user():
     if password_match:
        token_data = {"id": user_login.id}
        user_token = create_access_token(token_data)
+       response_dic = {"token": user_token}
+       user_wedding = Wedding.query.filter_by(user_id = user_login.id).first()
+       if user_wedding:
+           response_dic["wedding_id"] = user_wedding.id
+           wedding_membership = User_membership.query.filter_by(wedding_id = user_wedding.id).first()
+           if wedding_membership:
+               response_dic["membership_id"] = wedding_membership.id
        print(user_token)
-       return jsonify({"token": user_token})
+       return jsonify(response_dic)
     
     else: 
         return jsonify({"error": "Contraseña inválida"})
@@ -91,9 +98,16 @@ def login_user():
 
 @api.route('/profile/user', methods=['GET'])
 @jwt_required()
-def get_private_info_from_user():
-    user = get_jwt_identity()
-    return jsonify({"data": user}), 200
+def get_private_information():
+    print("hola")
+    user_id = get_jwt_identity()
+    user = User.query.filter_by(id = user_id["id"]).first()
+    print(user.serialize())
+    print(user.wedding[0].serialize())
+    if not user:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+    return jsonify({"user_data": user.serialize(), "wedding_data": user.wedding[0].serialize()}), 200
+    
 
 
 #Log in Provider
@@ -116,18 +130,36 @@ def login_provider():
     if password_match:
        token_data = {"id": user_login.id}
        user_token = create_access_token(token_data)
+       response_dic = {"token": user_token}
+       sheet = Provider_sheet.query.filter_by(provider_id = user_login.id).first()
+       if sheet:
+               response_dic["provider_sheet_id"] = sheet.id
+               provider_membership = Provider_membership.query.filter_by(provider_sheet_id = sheet.id).first()
+               if provider_membership:
+                response_dic["membership_id"] = provider_membership.id
        print(user_token)
-       return jsonify({"token": user_token})
-    
+       return jsonify(response_dic)
     else: 
         return jsonify({"error": "Contraseña inválida"})
+      
+
+
+
+#        
+
 
 
 @api.route('/profile/provider', methods=['GET'])
 @jwt_required()
-def get_private_info_from_provider():
-    provider = get_jwt_identity()
-    return jsonify({"data": provider}), 200
+def get_provider_private_information():
+    print("hola")
+    provider_id = get_jwt_identity()
+    provider = Provider.query.filter_by(id = provider_id["id"]).first()
+    print(provider.serialize())
+    print(provider.provider_sheet[0].serialize())
+    if not provider:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+    return jsonify({"provider_data": provider.serialize(), "sheet_data": provider.provider_sheet[0].serialize()}), 200
 
 #Endpoint de la planilla del cliente
 
@@ -243,7 +275,8 @@ def add_provider_membership():
     data_plan_type = data.get("plan_type", None)
 
     provider_data=get_jwt_identity()
-    new_provider_membership = Provider_membership(plan_type=data_plan_type, provider_sheet_id=provider_data["id"])
+    provider_sheet = Provider_sheet.query.filter_by(provider_id = provider_data["id"]).first()
+    new_provider_membership = Provider_membership(plan_type=data_plan_type, provider_sheet_id=provider_sheet.id)
     
     try:
         db.session.add(new_provider_membership)  
@@ -254,3 +287,4 @@ def add_provider_membership():
     except Exception as error:
         db.session.rollback()
         return jsonify(error.args), 500 
+

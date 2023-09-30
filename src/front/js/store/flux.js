@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			backendUrl: process.env.BACKEND_URL,
 			token: JSON.parse(localStorage.getItem("token")) || "",
 			userData: {},
-			// presupuesto_estimado: JSON.stringify(),
+			providerData: {},
 		},
 
 		actions: {
@@ -69,7 +69,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (!data.token) return false;
 					setStore({ token: data.token })
 					localStorage.setItem("token", JSON.stringify(data.token))
-					return true
+					if (data.membership_id) return "/profile/user"
+					if (data.wedding_id) return "/membresia/cliente"
+					return "/planilla/cliente"
 
 				} catch (error) {
 					console.log(error)
@@ -77,11 +79,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			loginProvider: async (userData) => {
+			loginProvider: async (providerData) => {
 				try {
 					const store = getStore();
 					const response = await fetch(`${store.backendUrl}/api/login/provider`, {
-						body: JSON.stringify(userData),
+						body: JSON.stringify(providerData),
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
@@ -91,7 +93,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					if (!data.token) return false;
 					setStore({ token: data.token })
-					return true
+					localStorage.setItem("token", JSON.stringify(data.token))
+					if (data.membership_id) return "/profile/provider"
+					if (data.provider_sheet_id) return "/membresia/provider"
+					console.log(data)
+					return "/planilla/provider"
+
 
 				} catch (error) {
 					console.log(error)
@@ -199,7 +206,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("Hay un error")
 				}
-			}
+			},
+
+			getUserInfo: async () => {
+				console.log("hola que tal");
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/profile/user`, {
+						headers: {
+							"Authorization": `Bearer ${store.token}`
+						}
+					})
+					const data = await response.json();
+					if (response.status === 401) {
+						toast.error("User not autenticated")
+						return;
+					}
+					console.log(data)
+					setStore({ userData: data.user_data, weddingData: data.wedding_data })
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
+			getProviderInfo: async () => {
+				console.log("hola que tal");
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/profile/provider`, {
+						headers: {
+							"Authorization": `Bearer ${store.token}`
+						}
+					})
+					const data = await response.json();
+					if (response.status === 401) {
+						toast.error("User not autenticated")
+						return;
+					}
+					console.log(data)
+					setStore({ providerData: data.provider_data, sheetData: data.sheet_data })
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
+			logoutUser: () => {
+				setStore({ token: "" });
+				localStorage.removeItem("token")
+			},
+
 		},
 	};
 };

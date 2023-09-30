@@ -5,6 +5,10 @@ import { FaDonate, FaEnvelopeSquare, FaCalendarAlt, FaBrain, FaSun, FaBook, FaPe
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	React.useEffect(() => {
+		const location = window.location.href.split("=")[1];
+		console.log(location)
+	}, [])
 
 	return (
 		<div className="container text-center">
