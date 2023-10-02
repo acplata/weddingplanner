@@ -3,23 +3,31 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
-import { ProfilePersonalData } from "../component/ProfilePersonalData.jsx";
-import { ProfileTodos } from "../component/ProfileTodos.jsx";
-import { ProfileInfo } from "../component/ProfileInfo.jsx";
-import { ProfileGuides } from "../component/ProfileGuides.jsx";
-import { ProfileListaProveedores } from "../component/ProfileListaProveedores.jsx";
+import { ProfilePersonalDataUser } from "../component/ProfilePersonalDataUser.jsx";
+import { ProfileTodosUser } from "../component/ProfileTodosUser.jsx";
+import { ProfileInfoUser } from "../component/ProfileInfoUser.jsx";
+import { ProfileGuidesUser } from "../component/ProfileGuidesUser.jsx";
+import { ProfileListaProveedoresUser } from "../component/ProfileListaProveedoresUser.jsx";
 
 
 export const ProfileCliente = () => {
+    const { store, actions } = useContext(Context)
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (store.token === "" || !store.token) {
+            navigate("/");
+        }
+        actions.getUserInfo()
+    }, []);
 
     return (
         <>
+            {store.userData != {} ? (
 
-            <div>
                 <div className="container">
-                    <div class="row">
+                    <div className="row mb-5">
 
-                        <ProfilePersonalData />
+                        <ProfilePersonalDataUser />
 
                         <div className="col-9 profile-layout1 mt-2">
                             <div>
@@ -35,14 +43,13 @@ export const ProfileCliente = () => {
                                     </li>
                                 </ul>
 
-                                {/*  Todos */}
-                                <div className="tab-content" id="myTabContent">
+                                <div className="tab-content mh-100" id="myTabContent">
 
-                                    <ProfileTodos />
+                                    <ProfileTodosUser />
 
-                                    <ProfileInfo />
+                                    <ProfileInfoUser />
 
-                                    <ProfileGuides />
+                                    <ProfileGuidesUser />
 
                                 </div>
                             </div>
@@ -50,10 +57,15 @@ export const ProfileCliente = () => {
 
                     </div>
 
-                    <ProfileListaProveedores />
+                    <ProfileListaProveedoresUser />
 
                 </div>
-            </div>
+
+            )
+                :
+                <div>
+                    No information on system
+                </div>}
 
         </>
     );

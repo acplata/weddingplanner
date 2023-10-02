@@ -114,7 +114,7 @@ export const PlanillaProveedor = () => {
                     </div>
                 </fieldset>
                 <div>
-                    <button type="submit" className="btn btn-white mb-5" onClick={addNewProvider}>¡Enviar!</button>
+                    <button type="button" className="btn btn-white mb-5" onClick={addNewProvider}>¡Enviar!</button>
                 </div>
             </div>
         </div>

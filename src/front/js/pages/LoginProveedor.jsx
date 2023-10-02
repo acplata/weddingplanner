@@ -17,12 +17,15 @@ export const LoginProveedor = () => {
         setloginInfo({ ...loginInfo, [e.target.name]: e.target.value })
     };
 
-    const handleSend = async () => {
+    const handleSend = async (e) => {
+        e.preventDefault()
         const result = await actions.loginProvider(loginInfo);
         console.log(result)
-        if (result) return navigate("/planilla/provider");
+        if (result) return navigate(result);
         toast.error("Inicio de sesión inválido")
     };
+
+
 
 
     return (
