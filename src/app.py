@@ -29,6 +29,7 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = os.environ.get('FLAS_APP_KEY')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 86400
 
 MIGRATE = Migrate(app, db, compare_type = True)
 JWT = JWTManager(app)
