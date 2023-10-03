@@ -292,9 +292,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 
 					if (response.status !== 201) {
+						toast.error("Error contactando al proveedor")
 						return false;
 					} else {
 						actions.getContacts()
+						toast.success("Contacto agregado")
 						return true;
 					}
 

@@ -303,6 +303,7 @@ def get_user_providers():
             if provider_sheet:
                 provider_data = provider_sheet.serialize()
                 provider_data["company_name"] = provider.company_name
+                provider_data["id"] = provider.id
                 provider_data["company_email"] = provider.company_email
                 if provider_data["presupuesto_minimo_de_usuario"] > user_wedding.presupuesto_estimado:
                     provider_data["budget"] = "No aplica"
@@ -319,6 +320,7 @@ def get_user_providers():
             provider_data = provider_sheet.serialize()
             provider_info = Provider.query.filter_by(id=provider_sheet.provider_id).first()
             provider_data["company_name"] = provider_info.company_name
+            provider_data["id"] = provider_info.id
             provider_data["company_email"] = provider_info.company_email
             if provider_data["presupuesto_minimo_de_usuario"] > user_wedding.presupuesto_estimado:
                 provider_data["budget"] = "No aplica"
