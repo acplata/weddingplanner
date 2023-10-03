@@ -256,7 +256,7 @@ def add_membresiacliente():
     data_plan_type = data.get("plan_type", None)
 
     wedding_data=get_jwt_identity()
-    wedding_info= Wedding.query.filter_by(user_id = wedding_data["id"].first())
+    wedding_info= Wedding.query.filter_by(user_id = wedding_data["id"]).first()
     new_membresia_cliente = User_membership(plan_type=data_plan_type, wedding_id=wedding_info.id)
     
     try:
