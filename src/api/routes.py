@@ -3,7 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
 
-from api.models import db, User, Provider, Wedding, User_membership, Provider_sheet, Provider_membership
+from api.models import db, User, Provider, Wedding, User_membership, Provider_sheet, Provider_membership, Contact
 
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -288,3 +288,67 @@ def add_provider_membership():
         db.session.rollback()
         return jsonify(error.args), 500 
 
+
+@api.route("/user/providers", methods=["GET"])
+@jwt_required()
+def get_user_providers():
+    token_data = get_jwt_identity()
+    user_wedding = Wedding.query.filter_by(user_id=token_data["id"]).first()
+    wedding_membership = user_wedding.membership[0]
+    if wedding_membership.plan_type == "luxe":
+        providers = Provider.query.all()
+        formated_providers = []
+        for provider in providers:
+            provider_sheet = Provider_sheet.query.filter_by(provider_id=provider.id).first()
+            if provider_sheet:
+                provider_data = provider_sheet.serialize()
+                provider_data["company_name"] = provider.company_name
+                provider_data["company_email"] = provider.company_email
+                if provider_data["presupuesto_minimo_de_usuario"] > user_wedding.presupuesto_estimado:
+                    provider_data["budget"] = "No aplica"
+                formated_providers.append(provider_data)
+        return jsonify(formated_providers)
+
+    providers = Provider_membership.query.filter_by(
+        plan_type=wedding_membership.plan_type).all()
+    formated_providers = []
+    for provider in providers:
+        print(provider.serialize())
+        provider_sheet = Provider_sheet.query.filter_by(id=provider.provider_sheet_id).first()
+        if provider_sheet:
+            provider_data = provider_sheet.serialize()
+            provider_info = Provider.query.filter_by(id=provider_sheet.provider_id).first()
+            provider_data["company_name"] = provider_info.company_name
+            provider_data["company_email"] = provider_info.company_email
+            if provider_data["presupuesto_minimo_de_usuario"] > user_wedding.presupuesto_estimado:
+                provider_data["budget"] = "No aplica"
+            formated_providers.append(provider_data)
+
+    return jsonify(formated_providers)
+
+
+@api.route("/contact/<int:provider_id>", methods=["POST"])
+@jwt_required()
+def create_contact(provider_id):
+    user = get_jwt_identity()
+    try: 
+        new_contact = Contact(user_id = user["id"], provider_id = provider_id)
+        db.session.add(new_contact)
+        db.session.commit()
+        return jsonify("Contacto creado"), 201
+    except Exception as error:
+        db.session.rollback()
+        return jsonify(error.args), 500 
+    
+
+@api.route("/contact", methods=["GET"])
+@jwt_required()
+def get_contact():
+    user = get_jwt_identity()
+    contacts = Contact.query.filter_by(user_id = user["id"]).all()
+    contacts_info = []
+    for contact in contacts:
+        provider = Provider.query.filter_by(id = contact.provider_id).first()
+        contacts_info.append(provider.serialize())
+    print(contacts_info)
+    return jsonify({"data": contacts_info }), 200

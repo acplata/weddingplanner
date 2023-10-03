@@ -67,7 +67,7 @@ export const PlanillaCliente = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="formGroupExampleInput2" className="form-label">Cantidad de Invitados Estimado</label>
-                            <input type="text" className="form-control" name="guests_average" id="formGroupExampleInput2" onChange={handleChange} />
+                            <input type="number" className="form-control" name="guests_average" id="formGroupExampleInput2" onChange={handleChange} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="formGroupExampleInput2" className="form-label">¿Boda Diurna o Nocturna?</label>
@@ -82,7 +82,7 @@ export const PlanillaCliente = () => {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="validationTooltipUsernamePrepend">$</span>
                             </div>
-                            <input type="text" className="form-control" id="validationTooltipUsername" name="presupuesto_estimado" placeholder="$0-$100,000" aria-describedby="validationTooltipUsernamePrepend" onChange={handleChange} />
+                            <input type="number" className="form-control" id="validationTooltipUsername" name="presupuesto_estimado" placeholder="$0-$100,000" aria-describedby="validationTooltipUsernamePrepend" onChange={handleChange} />
                         </div>
                         <p className="mb-4 mt-4">Marque los siguientes campos en los que esté interesado en obtener proveedores:</p>
                         <fieldset className="row mb-3">
