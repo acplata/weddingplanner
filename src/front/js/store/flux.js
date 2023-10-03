@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -5,6 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: JSON.parse(localStorage.getItem("token")) || "",
 			userData: {},
 			providerData: {},
+			userProviders: [],
+			contacts: [],
 		},
 
 		actions: {
@@ -43,7 +47,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 
 					const data = await response.json();
-					alert(data);
 					if (response.status !== 201) {
 						return false;
 					} else {
@@ -107,6 +110,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addWedding: async (wedding) => {
+				wedding.guests_average = parseInt(wedding.guests_average)
+				wedding.presupuesto_estimado = parseInt(wedding.presupuesto_estimado)
 
 				try {
 					const store = getStore();
@@ -219,6 +224,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await response.json();
 					if (response.status === 401) {
+						const actions = getActions()
+						actions.logoutUser()
 						toast.error("User not autenticated")
 						return;
 					}
@@ -254,6 +261,67 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ token: "" });
 				localStorage.removeItem("token")
 			},
+
+			getUserProviders: async () => {
+				try {
+					const store = getStore();
+					const response = await fetch(`${store.backendUrl}/api/user/providers`, {
+						headers: {
+							"Authorization": `Bearer ${store.token}`
+						}
+					})
+					const data = await response.json();
+					if (response.status !== 200) {
+						toast.error("Ha ocurrido un error")
+					}
+					setStore({ userProviders: data })
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
+			createContact: async (provider_id) => {
+				const store = getStore()
+				const actions = getActions()
+				try {
+					const response = await fetch(`${store.backendUrl}/api/contact/${provider_id}`, {
+						method: "POST",
+						headers: {
+							"Authorization": `Bearer ${store.token}`,
+						},
+					})
+
+					if (response.status !== 201) {
+						return false;
+					} else {
+						actions.getContact()
+						return true;
+					}
+
+				} catch (error) {
+					console.log(error)
+				}
+
+
+			},
+
+			getContacts: async () => {
+				const store = getStore()
+				try {
+					const response = await fetch(`${store.backendUrl}/api/contact`, {
+						method: "GET",
+						headers: {
+							"Authorization": `Bearer ${store.token}`,
+
+						}
+					})
+					const data = await response.json()
+					setStore({ contacts: data.data })
+
+				} catch (error) {
+					console.error(error)
+				}
+			}
 
 		},
 	};

@@ -38,10 +38,6 @@ export const RegisterProveedor = () => {
                             <input type="text" className="form-control" id="formGroupExampleInput" name="company_name" onChange={handleChange} />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="formGroupExampleInput2" className="form-label">RIF</label>
-                            <input type="text" className="form-control" id="formGroupExampleInput2" name="RIF" onChange={handleChange} />
-                        </div>
-                        <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
                             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="company_email" onChange={handleChange} />
 
