@@ -48,8 +48,6 @@ export const ProfileProveedor = () => {
 
                     </div>
 
-                    <ProfileListaProveedoresUser />
-
                 </div>
 
             )

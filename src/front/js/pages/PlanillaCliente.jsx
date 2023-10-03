@@ -70,7 +70,7 @@ export const PlanillaCliente = () => {
                             <input type="number" className="form-control" name="guests_average" id="formGroupExampleInput2" onChange={handleChange} />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="formGroupExampleInput2" className="form-label">¿Boda Diurna o Nocturna?</label>
+                            <label htmlFor="formGroupExampleInput2" className="form-label">¿Hora de la boda?</label>
                             <input type="text" className="form-control" name="wedding_time" id="formGroupExampleInput2" onChange={handleChange} />
                         </div>
                         <div className="mb-3">
