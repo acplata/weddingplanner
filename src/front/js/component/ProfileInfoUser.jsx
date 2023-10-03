@@ -5,7 +5,7 @@ export const ProfileInfoUser = () => {
     const { store, actions } = useContext(Context)
 
     return (
-        <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
+        <div className="tab-pane fade m-3" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
             <p className="mt-3"><b>Cantidad de invitados:</b> {store.weddingData?.guests_average}</p>
             <p><b>Hora de boda:</b> {store.weddingData?.wedding_time}</p>
             <p><b>Presupuesto inicial:</b>  {store.weddingData?.presupuesto_estimado} </p>

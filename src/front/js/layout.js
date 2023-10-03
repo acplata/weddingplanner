@@ -53,19 +53,6 @@ const Layout = () => {
                         pauseOnHover
                         theme="colored" />
 
-                    <ToastContainer
-                        position="top-center"
-                        autoClose={5000}
-                        hideProgressBar
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme="light"
-                    />
-
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />

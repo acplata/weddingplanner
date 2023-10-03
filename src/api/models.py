@@ -12,6 +12,7 @@ class User(db.Model):
 
     #relations
     wedding = db.relationship("Wedding", backref= "User")
+    contacts = db.relationship("Contact", backref="User")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -35,6 +36,7 @@ class Provider(db.Model):
 
     # relations 
     provider_sheet = db.relationship("Provider_sheet", backref= "Provider")
+    contacts = db.relationship("Contact", backref="Provider")
 
     def __repr__(self):
         return f'<Provider {self.company_email}>'
@@ -158,3 +160,19 @@ class Provider_membership(db.Model):
         }
 
 
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    provider_id = db.Column(db.Integer, db.ForeignKey("provider.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    interaction = db.Column(db.String(20))
+
+    def __repr__(self):
+        return f'< Contact{self.id}>'
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "provider_id": self.provider_id,
+            "user_id": self.user_id,
+            "interaction": self.interaction,
+        }

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 9d5f47ca1e95
+Revision ID: f77f3694d7d9
 Revises: 
-Create Date: 2023-09-29 12:25:45.093889
+Create Date: 2023-10-02 18:11:05.609400
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9d5f47ca1e95'
+revision = 'f77f3694d7d9'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,6 +37,15 @@ def upgrade():
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
+    )
+    op.create_table('contact',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('provider_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('interaction', sa.String(length=20), nullable=True),
+    sa.ForeignKeyConstraint(['provider_id'], ['provider.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('provider_sheet',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -94,6 +103,7 @@ def downgrade():
     op.drop_table('provider_membership')
     op.drop_table('wedding')
     op.drop_table('provider_sheet')
+    op.drop_table('contact')
     op.drop_table('user')
     op.drop_table('provider')
     # ### end Alembic commands ###
