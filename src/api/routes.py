@@ -295,7 +295,7 @@ def get_user_providers():
     token_data = get_jwt_identity()
     user_wedding = Wedding.query.filter_by(user_id=token_data["id"]).first()
     wedding_membership = user_wedding.membership[0]
-    if wedding_membership.plan_type == "luxe":
+    if wedding_membership.plan_type == "Luxe":
         providers = Provider.query.all()
         formated_providers = []
         for provider in providers:
