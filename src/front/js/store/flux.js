@@ -294,7 +294,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 201) {
 						return false;
 					} else {
-						actions.getContact()
+						actions.getContacts()
 						return true;
 					}
 
